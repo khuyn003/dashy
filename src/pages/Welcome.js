@@ -8,10 +8,6 @@ import {
   ROUTE_HELLO
 } from 'app-constants';
 
-const Wrapper = styled.div`
-
-`;
-
 const Greeting = styled.h1`
   color: #fff;
   flex: 0 0 100%;
@@ -34,7 +30,7 @@ const Input = styled.input`
   outline: none;
   background: none;
   border: 0;
-  border-bottom: 3px solid ${props => props.isError ? 'red' : '#fff'};
+  border-bottom: 3px solid ${props => props.isError ? props.theme.colors.error : '#fff'};
   font-size: 55px;
   color: #fff;
   text-align: center;
@@ -43,7 +39,7 @@ const Input = styled.input`
 `;
 
 const Hello = () => {
-  const [username, setusername] = useState();
+  const [username, setusername] = useState('');
   const [usernameLocalStorage, setusernameLocalStorage] = useStateWithLocalStorage(LOCAL_STORAGE_USERNAME);
   const [isError, setIsError] = useState(false);
 
@@ -52,8 +48,6 @@ const Hello = () => {
       setIsError(true);
 
       e.preventDefault();
-
-      return false;
     }
 
     setusernameLocalStorage(username);
@@ -65,14 +59,15 @@ const Hello = () => {
     }
 
     setIsError(false);
-    setusername(e.target.value)
+    setusername(e.target.value);
   }
 
   return (
     usernameLocalStorage
       ? <Redirect to={ROUTE_HELLO} />
       : (
-        <Wrapper>
+
+        <React.Fragment>
           <Greeting>Hello, what's your first name?</Greeting>
           <Form onSubmit={handleSubmit}>
             <Input
@@ -81,7 +76,7 @@ const Hello = () => {
               onChange={handleChange}
             />
           </Form>
-        </Wrapper>
+        </React.Fragment>
       )
   );
 }

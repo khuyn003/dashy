@@ -1,7 +1,6 @@
 export default {
   colors: {
-    primary: '#fff',
-    background: '#333',
+    error: '#AF231C'
   },
   fonts: {
     primary: '-apple-system, BlinkMacSystemFont, sans-serif'

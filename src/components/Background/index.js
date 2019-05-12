@@ -35,7 +35,7 @@ export default function Background({ className }) {
     } else {
       setIsVisible(true);
     }
-  }, [backgroundObj])
+  }, [backgroundObj, day, setBackgroundObj])
 
   return (
     <Container
