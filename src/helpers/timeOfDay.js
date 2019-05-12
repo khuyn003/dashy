@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   MORNING,
   AFTERNOON,
@@ -10,7 +11,7 @@ import {
  *
  * @return {String} Time of the day
  */
-export default function getTimeOfDay() {
+function getTimeOfDay() {
   const hourOfDay = (new Date()).getHours();
 
   if (hourOfDay >= 6 && hourOfDay < 12) {
@@ -22,4 +23,20 @@ export default function getTimeOfDay() {
   }
 
   return NIGHT;
+}
+
+export default function useStateTimeOfDay() {
+  const [timeOfDay, setTimeOfDay] = React.useState(getTimeOfDay());
+
+  React.useEffect(() => {
+    let interval = window.setInterval(() => {
+      setTimeOfDay(getTimeOfDay());
+    }, 1000);
+
+    return function cleanup() {
+      window.clearInterval(interval);
+    }
+  }, [timeOfDay, setTimeOfDay]);
+
+  return [timeOfDay, setTimeOfDay];
 }

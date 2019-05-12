@@ -5,6 +5,7 @@ module.exports = ({config}) => {
     'app-constants': path.resolve(__dirname, '../src/app-constants'),
     components: path.resolve(__dirname, '../src/components'),
     helpers: path.resolve(__dirname, '../src/helpers'),
+    mocks: path.resolve(__dirname, '../src/mocks'),
     themes: path.resolve(__dirname, '../src/themes'),
   }
 

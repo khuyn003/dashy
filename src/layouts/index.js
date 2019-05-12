@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import Background from 'components/Background';
+import Background from 'containers/Background';
 import getGreeting from 'helpers/greeting';
-import getTimeOfDay from 'helpers/timeOfDay';
+import useStateTimeOfDay from 'helpers/timeOfDay';
 import useStateWithLocalStorage from 'helpers/localStorage';
 import { LOCAL_STORAGE_USERNAME } from 'app-constants';
 
@@ -37,6 +37,7 @@ const Wrapper = styled.div`
 export default function Layout({ children }) {
   const [username] = useStateWithLocalStorage(LOCAL_STORAGE_USERNAME);
   const [isVisible, setIsVisible] = useState(false);
+  const [timeOfDay] = useStateTimeOfDay();
 
   useEffect(() => {
     window.setTimeout(() => {
@@ -46,7 +47,7 @@ export default function Layout({ children }) {
 
   return (
     <React.Fragment>
-      <Helmet title={username ? `${getGreeting(username, getTimeOfDay())} | Dashy` : 'Dashy'} />
+      <Helmet title={username ? `${getGreeting(username, timeOfDay)} | Dashy` : 'Dashy'} />
       <Background />
       <Container>
         <Wrapper isVisible={isVisible}>

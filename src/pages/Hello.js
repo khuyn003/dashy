@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Redirect } from 'react-router-dom';
 
-import getTimeOfDay from 'helpers/timeOfDay';
+import useStateTimeOfDay from 'helpers/timeOfDay';
 import useStateWithLocalStorage from 'helpers/localStorage';
 import Clock from 'components/Clock';
 import Greeting from 'components/Greeting';
@@ -17,6 +17,7 @@ const StyledClock = styled(Clock)`
 
 const Welcome = () => {
   const [username] = useStateWithLocalStorage(LOCAL_STORAGE_USERNAME);
+  const [timeOfDay] = useStateTimeOfDay();
 
   if (!username) return <Redirect to={ROUTE_MAIN} />;
 
@@ -25,7 +26,7 @@ const Welcome = () => {
       <StyledClock />
       <Greeting
         username={username}
-        timeOfDay={getTimeOfDay()}
+        timeOfDay={timeOfDay}
       />
     </React.Fragment>
   );
