@@ -9,7 +9,8 @@ Another chrome extension to override your new tab page. Built using [Create Reac
 - Greeting
 
 ## Requirements:
-- Chrome
+- Chrome browser
+- Node 8.10.0 or higher
 - Yarn
 
 ## Get started:

@@ -11,6 +11,9 @@ import { LOCAL_STORAGE_USERNAME } from 'app-constants';
 const Container = styled.div`
   height: 100%;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &::before {
     content: '';
@@ -22,14 +25,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  height: fit-content;
-
+  position: relative;
   opacity: ${props => props.isVisible ? 1 : 0};
   transition: opacity 700ms ease-in;
 `
