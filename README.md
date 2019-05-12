@@ -2,6 +2,8 @@
 
 Another chrome extension to override your new tab page. Built using [Create React App](https://github.com/facebook/create-react-app).
 
+![Screenshot of Dashy](https://github.com/khuyn003/dashy/blob/master/screenshot.jpg)
+
 ## Features:
 - Digital Clock
 - Greeting
