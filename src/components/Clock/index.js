@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   letter-spacing: -5px;
   color: #fff;
   text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
+  user-select: none;
 
   @media (min-width: ${props => props.theme.breakpoints.small}) {
     font-size: 170px;
