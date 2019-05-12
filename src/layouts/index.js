@@ -19,9 +19,6 @@ const Container = styled.div`
     width: 100%;
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, .25) 0%,rgba(0, 0, 0, 0) 100%);
   }
-
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transition: opacity 250ms ease-in-out;
 `;
 
 const Wrapper = styled.div`
@@ -32,6 +29,9 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
   height: fit-content;
+
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transition: opacity 700ms ease-in;
 `
 
 export default function Layout({ children }) {
@@ -41,15 +41,15 @@ export default function Layout({ children }) {
   useEffect(() => {
     window.setTimeout(() => {
       setIsVisible(true);
-    }, 0);
+    }, 200);
   });
 
   return (
     <React.Fragment>
       <Helmet title={username ? `${getGreeting(username, getTimeOfDay())} | Dashy` : 'Dashy'} />
       <Background />
-      <Container isVisible={isVisible}>
-        <Wrapper>
+      <Container>
+        <Wrapper isVisible={isVisible}>
           {children}
         </Wrapper>
       </Container>
