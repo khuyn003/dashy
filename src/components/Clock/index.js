@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   font: 500 170px/1 ${props => props.theme.fonts.primary};
   letter-spacing: -5px;
   color: #fff;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
 `;
 
 function getTime() {

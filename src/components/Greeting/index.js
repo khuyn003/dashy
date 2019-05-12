@@ -5,10 +5,10 @@ import getGreeting from 'helpers/greeting';
 
 const Wrapper = styled.h1`
   color: #fff;
-  flex: 0 0 100%;
   font-size: 55px;
   font-weight: 500;
   text-align: center;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
   margin: 0;
 `;
 

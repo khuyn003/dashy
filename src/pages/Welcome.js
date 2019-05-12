@@ -8,12 +8,13 @@ import {
   ROUTE_HELLO
 } from 'app-constants';
 
-const Greeting = styled.h1`
+const Prompt = styled.label`
   color: #fff;
-  flex: 0 0 100%;
   font-size: 55px;
   font-weight: 500;
   text-align: center;
+  margin: 0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
 `
 
 const Form = styled.form`
@@ -66,17 +67,16 @@ const Hello = () => {
     usernameLocalStorage
       ? <Redirect to={ROUTE_HELLO} />
       : (
-
-        <React.Fragment>
-          <Greeting>Hello, what's your first name?</Greeting>
-          <Form onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              isError={isError}
-              onChange={handleChange}
-            />
-          </Form>
-        </React.Fragment>
+        <Form onSubmit={handleSubmit}>
+          <Prompt for="dashy-first-name">What's your first name?</Prompt>
+          <Input
+            id="dashy-first-name"
+            type="text"
+            isError={isError}
+            onChange={handleChange}
+            autofocus="autofocus"
+          />
+        </Form>
       )
   );
 }
