@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 
-import Background from 'components/Background';
+import Background from 'containers/Background';
 import getGreeting from 'helpers/greeting';
-import getTimeOfDay from 'helpers/timeOfDay';
+import useStateTimeOfDay from 'helpers/timeOfDay';
 import useStateWithLocalStorage from 'helpers/localStorage';
 import { LOCAL_STORAGE_USERNAME } from 'app-constants';
 
@@ -19,9 +19,6 @@ const Container = styled.div`
     width: 100%;
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, .25) 0%,rgba(0, 0, 0, 0) 100%);
   }
-
-  opacity: ${props => props.isVisible ? 1 : 0};
-  transition: opacity 250ms ease-in-out;
 `;
 
 const Wrapper = styled.div`
@@ -32,24 +29,28 @@ const Wrapper = styled.div`
   right: 0;
   margin: auto;
   height: fit-content;
+
+  opacity: ${props => props.isVisible ? 1 : 0};
+  transition: opacity 700ms ease-in;
 `
 
 export default function Layout({ children }) {
   const [username] = useStateWithLocalStorage(LOCAL_STORAGE_USERNAME);
   const [isVisible, setIsVisible] = useState(false);
+  const [timeOfDay] = useStateTimeOfDay();
 
   useEffect(() => {
     window.setTimeout(() => {
       setIsVisible(true);
-    }, 0);
+    }, 200);
   });
 
   return (
     <React.Fragment>
-      <Helmet title={username ? `${getGreeting(username, getTimeOfDay())} | Dashy` : 'Dashy'} />
+      <Helmet title={username ? `${getGreeting(username, timeOfDay)} | Dashy` : 'Dashy'} />
       <Background />
-      <Container isVisible={isVisible}>
-        <Wrapper>
+      <Container>
+        <Wrapper isVisible={isVisible}>
           {children}
         </Wrapper>
       </Container>
