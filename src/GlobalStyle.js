@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font: 400 16px/1.5 ${props => props.theme.fonts.primary};
     color: #fff;
+    overflow: hidden;
   }
 
   #root {

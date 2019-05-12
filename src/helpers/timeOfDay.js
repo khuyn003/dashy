@@ -15,9 +15,9 @@ export default function getTimeOfDay() {
 
   if (hourOfDay >= 6 && hourOfDay < 12) {
     return MORNING;
-  } else if (hourOfDay >= 12 && hourOfDay < 15) {
+  } else if (hourOfDay >= 12 && hourOfDay < 17) {
     return AFTERNOON;
-  } else if (hourOfDay >= 15 && hourOfDay < 19) {
+  } else if (hourOfDay >= 17 && hourOfDay < 19) {
     return SUNSET;
   }
 

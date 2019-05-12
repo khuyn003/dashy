@@ -11,3 +11,7 @@ export const GREETINGS = {
 }
 
 export const LOCAL_STORAGE_USERNAME = 'username';
+
+// React router
+export const ROUTE_MAIN = '/';
+export const ROUTE_HELLO = '/hello';

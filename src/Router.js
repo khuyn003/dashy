@@ -1,9 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Hello from 'pages/Hello';
 import Welcome from 'pages/Welcome';
 import Layout from 'layouts';
+import {
+  ROUTE_MAIN,
+  ROUTE_HELLO
+} from 'app-constants';
 
 const LayoutRoute = ({component: Component, ...rest}) => {
   return (
@@ -19,8 +23,8 @@ export default function Page() {
   return (
     <Router>
       <React.Fragment>
-        <LayoutRoute path="/" component={Hello} exact />
-        <LayoutRoute path="/welcome" component={Welcome} />
+        <LayoutRoute path={ROUTE_MAIN} component={Welcome} exact />
+        <LayoutRoute path={ROUTE_HELLO} component={Hello} />
       </React.Fragment>
     </Router>
   );

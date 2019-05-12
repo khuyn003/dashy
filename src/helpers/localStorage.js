@@ -11,12 +11,12 @@ const STORAGE_PREFIX = 'dashy_';
  */
 export default function useStateWithLocalStorage(localStorageKey = '') {
   const [value, setValue] = React.useState(
-    localStorage.getItem(`${STORAGE_PREFIX}${localStorageKey}`) || ''
+    window.localStorage.getItem(`${STORAGE_PREFIX}${localStorageKey}`) || ''
   );
 
   React.useEffect(() => {
-    localStorage.setItem(`${STORAGE_PREFIX}${localStorageKey}`, value);
-  }, [value]);
+    window.localStorage.setItem(`${STORAGE_PREFIX}${localStorageKey}`, value);
+  }, [value, localStorageKey]);
 
   return [value, setValue];
 };
