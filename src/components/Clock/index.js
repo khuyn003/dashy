@@ -3,10 +3,14 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   text-align: center;
-  font: 500 170px/1 ${props => props.theme.fonts.primary};
+  font: 500 120px/1 ${props => props.theme.fonts.primary};
   letter-spacing: -5px;
   color: #fff;
   text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
+
+  @media (min-width: ${props => props.theme.breakpoints.small}) {
+    font-size: 170px;
+  }
 `;
 
 function getTime() {

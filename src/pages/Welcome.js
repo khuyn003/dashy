@@ -8,35 +8,40 @@ import {
   ROUTE_HELLO
 } from 'app-constants';
 
-const Prompt = styled.label`
-  color: #fff;
-  font-size: 55px;
-  font-weight: 500;
-  text-align: center;
-  margin: 0;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
-`
-
 const Form = styled.form`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  font-size: 55px;
-  color: #fff;
+  padding: 0 25px;
 `;
+
+const Label = styled.label`
+  display: block;
+  width: 100%;
+  font: 500 36px/1.2 ${props => props.theme.fonts.primary};
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
+
+  @media (min-width: ${props => props.theme.breakpoints.small}) {
+    font-size: 55px;
+  }
+`
 
 const Input = styled.input`
   display: block;
+  width: 100%;
   margin-top: 10px;
   outline: none;
   background: none;
   border: 0;
   border-bottom: 3px solid ${props => props.isError ? props.theme.colors.error : '#fff'};
-  font-size: 55px;
+  font-size: 36px;
   color: #fff;
   text-align: center;
   box-shadow: 0 1px 0 rgba(0, 0, 0, .3);
   text-shadow: 0 1px 5px rgba(0, 0, 0, .3);
+
+  @media (min-width: ${props => props.theme.breakpoints.small}) {
+    font-size: 55px;
+  }
 `;
 
 const Hello = () => {
@@ -68,9 +73,8 @@ const Hello = () => {
       ? <Redirect to={ROUTE_HELLO} />
       : (
         <Form onSubmit={handleSubmit}>
-          <Prompt for="dashy-first-name">What's your first name?</Prompt>
+          <Label>What's your first name?</Label>
           <Input
-            id="dashy-first-name"
             type="text"
             isError={isError}
             onChange={handleChange}
