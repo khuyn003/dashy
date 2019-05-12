@@ -46,9 +46,9 @@ const Hello = () => {
   const handleSubmit = (e) => {
     if (!username) {
       setIsError(true);
-
-      e.preventDefault();
     }
+
+    e.preventDefault();
 
     setusernameLocalStorage(username);
   }
