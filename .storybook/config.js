@@ -13,10 +13,10 @@ function loadStories() {
 
 const withThemeProvider = (storyFn) => (
   <ThemeProvider theme={theme}>
-    <React.Fragment>
+    <>
       <GlobalStyle />
       {storyFn()}
-    </React.Fragment>
+    </>
   </ThemeProvider>
 );
 

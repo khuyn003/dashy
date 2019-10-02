@@ -42,7 +42,7 @@ export default function Layout({ children }) {
   });
 
   return (
-    <React.Fragment>
+    <>
       <Helmet title={username ? `${getGreeting(username, timeOfDay)} | Dashy` : 'Dashy'} />
       <Background />
       <Container>
@@ -50,6 +50,6 @@ export default function Layout({ children }) {
           {children}
         </Wrapper>
       </Container>
-    </React.Fragment>
+    </>
   );
 };
