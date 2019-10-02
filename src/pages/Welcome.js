@@ -78,7 +78,7 @@ const Hello = () => {
             type="text"
             isError={isError}
             onChange={handleChange}
-            autofocus="autofocus"
+            autoFocus
           />
         </Form>
       )
