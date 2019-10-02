@@ -22,13 +22,13 @@ const Welcome = () => {
   if (!username) return <Redirect to={ROUTE_MAIN} />;
 
   return (
-    <React.Fragment>
+    <>
       <StyledClock />
       <Greeting
         username={username}
         timeOfDay={timeOfDay}
       />
-    </React.Fragment>
+    </>
   );
 }
 

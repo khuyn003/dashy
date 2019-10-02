@@ -8,10 +8,10 @@ import GlobalStyle from 'GlobalStyle';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <React.Fragment>
+    <>
       <GlobalStyle />
       <Router />
-    </React.Fragment>
+    </>
   </ThemeProvider>,
   document.getElementById('root')
 );

@@ -22,10 +22,10 @@ const LayoutRoute = ({component: Component, ...rest}) => {
 export default function Page() {
   return (
     <Router>
-      <React.Fragment>
+      <>
         <LayoutRoute path={ROUTE_MAIN} component={Welcome} exact />
         <LayoutRoute path={ROUTE_HELLO} component={Hello} />
-      </React.Fragment>
+      </>
     </Router>
   );
 }
