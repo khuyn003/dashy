@@ -39,7 +39,11 @@ function fetchBgImgUrl(timeOfDay) {
       // can now be used offline
       return dataUrl;
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+
+      return '';
+    })
   ;
 };
 
@@ -60,14 +64,17 @@ export default function BackgroundContainer({ className }) {
     async function fetchNewBackground() {
       const newBgImgUrl = await fetchBgImgUrl(timeOfDay);
 
-      setBgImgUrl(newBgImgUrl);
-      setBgImgTimestamp(currentTimestamp);
+      if (newBgImgUrl) {
+        setBgImgUrl(newBgImgUrl);
+        setBgImgTimestamp(currentTimestamp);
+      }
+
       setIsFetchingBg(false);
       setIsVisible(true);
     }
 
     // if no img found or it's a stale image, fetch a new one
-    if (!isFetchingBg && (!bgImgUrl || bgImgTimestamp !== currentTimestamp)) {
+    if (!isFetchingBg && (!bgImgUrl || bgImgUrl === 'undefined' || bgImgTimestamp !== currentTimestamp)) {
       setIsFetchingBg(true);
       setIsVisible(false);
       fetchNewBackground();
